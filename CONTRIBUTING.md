@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to Agent Reliability Fabric.
+Thanks for contributing to gctl.
 
 ## Development setup
 

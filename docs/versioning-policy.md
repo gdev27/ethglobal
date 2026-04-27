@@ -1,6 +1,6 @@
 # Versioning Policy
 
-Agent Reliability Fabric uses semantic versioning for framework packages and interfaces.
+gctl uses semantic versioning for framework packages and interfaces.
 
 ## SemVer rules
 

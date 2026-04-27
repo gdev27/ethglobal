@@ -1,13 +1,13 @@
 # ETHGlobal Submission Draft
 
 ## Project name
-Agent Reliability Fabric
+gctl
 
 ## One-line description
-Agent Reliability Fabric is an open-source agent framework and autonomous swarm reference app that makes onchain execution trustworthy through policy constraints, verifiable identity, and reliability-first execution.
+gctl is an open-source agent framework and autonomous swarm reference app that makes onchain execution trustworthy through policy constraints, verifiable identity, and reliability-first execution.
 
 ## What we built
-Agent Reliability Fabric includes:
+gctl includes:
 - Framework-level `PolicyGraph SDK` with stable adapters for identity, compute/memory, and execution.
 - ENS identity passports with role metadata, authorization checks, and reverse-resolution verification.
 - 0G-backed preflight inference and encrypted memory artifacts with chain attestation receipts.
