@@ -1,6 +1,6 @@
 # Adapter Contracts
 
-Agent Reliability Fabric uses stable adapter interfaces so builders can swap infra providers without rewriting policy logic.
+gctl uses stable adapter interfaces so builders can swap infra providers without rewriting policy logic.
 
 ## Contract surfaces
 

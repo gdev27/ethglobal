@@ -1,5 +1,5 @@
 export default {
-  project: "agent-reliability-fabric-indexer",
+  project: "gctl-indexer",
   // MVP scaffold: replace with actual chain and contract bindings during deployment.
   contracts: {
     PolicyRegistry: {

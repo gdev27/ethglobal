@@ -1,6 +1,6 @@
-# Agent Reliability Fabric
+# gctl
 
-Agent Reliability Fabric is an open-source framework and reference implementation for policy-constrained autonomous agents that can safely move value onchain.
+gctl is an open-source framework and reference implementation for policy-constrained autonomous agents that can safely move value onchain.
 
 It combines:
 - **0G** for verifiable compute + encrypted persistent memory + onchain attestations.
@@ -15,7 +15,7 @@ Teams can prototype agents quickly, but production deployment still fails on thr
 - **Governance:** hard to ensure behavior stays within institutional policy.
 - **Execution reliability:** hard to guarantee actions settle predictably onchain.
 
-Agent Reliability Fabric addresses this with a reusable framework and a flagship swarm reference app.
+gctl addresses this with a reusable framework and a flagship swarm reference app.
 
 ## Product strategy
 - **Framework:** `PolicyGraph SDK` with adapter interfaces for 0G, ENS, and KeeperHub.

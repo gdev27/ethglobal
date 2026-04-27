@@ -1,8 +1,8 @@
 {
-  "name": "agent-reliability-fabric",
+  "name": "gctl",
   "version": "1.0.0",
   "private": true,
-  "description": "Agent Reliability Fabric for policy-constrained autonomous agents.",
+  "description": "gctl for policy-constrained autonomous agents.",
   "type": "module",
   "scripts": {
     "build": "tsc --noEmit",
