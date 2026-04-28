@@ -9,8 +9,9 @@ Thanks for contributing to gctl.
 2. Copy environment template:
    - `cp .env.example .env`
 3. Run local quality checks:
-   - `npm run test`
-   - `npm run typecheck`
+   - `npm run verify`
+4. Remove generated runtime state before preparing PR snapshots:
+   - `npm run clean:runtime`
 
 ## Contribution workflow
 
@@ -21,7 +22,7 @@ Thanks for contributing to gctl.
 5. Submit PR with:
    - clear problem statement
    - architecture impact
-   - verification steps
+   - verification steps (`npm run verify`)
 
 ## Coding standards
 
@@ -29,6 +30,7 @@ Thanks for contributing to gctl.
 - Fail-closed behavior is mandatory for execution-critical paths.
 - Keep adapter boundaries stable and provider-agnostic.
 - Never remove safety checks without explicit replacement.
+- Do not commit local runtime artifacts (`cache/`, `.zerog-memory/`, `reconciliation-logs/`).
 
 ## Adapter extension rules
 
@@ -47,12 +49,6 @@ Use RFCs for major changes:
 
 Draft location: `docs/rfcs/`.
 
-## AI workflow conventions
+## AI-assisted delivery (optional)
 
-This repo uses gstack and GSD together for high-quality delivery:
-
-- Workflow index: `devtools/agent-workflows/README.md`
-- Phase loop: `devtools/agent-workflows/PHASE_PLAYBOOK.md`
-- Quality gates: `devtools/agent-workflows/QUALITY_GATES.md`
-- Command routing: `devtools/agent-workflows/COMMAND_MAP.md`
-
+You may use gstack and GSD in your own environment for planning and execution. This repository does not ship a vendored workflow tree; use **Development setup** and **Contribution workflow** above, and match the PR template verification steps (`npm run verify` and any demos your change affects).

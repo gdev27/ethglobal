@@ -43,10 +43,14 @@ npm run hh:compile
 npm run hh:test
 npm run test
 npm run test:integration
+npm run typecheck
+npm run verify
+npm run clean:runtime
 npm run compile:policy
 npm run demo:init
 npm run demo:deterministic
 npm run demo:swarm
+npm run ens:passport
 ```
 
 ## End-to-end demo path
@@ -74,6 +78,7 @@ npm run demo:swarm
    ```
 
 ## Submission and engineering assets
+- Docs index: `docs/README.md`
 - Sponsor mapping: `docs/sponsor-mapping.md`
 - Architecture: `docs/architecture.md`
 - Adapter contracts: `docs/adapter-contracts.md`
