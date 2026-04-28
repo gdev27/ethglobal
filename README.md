@@ -46,6 +46,7 @@ npm run test:integration
 npm run typecheck
 npm run verify
 npm run clean:runtime
+npm run clean:all-local
 npm run compile:policy
 npm run demo:init
 npm run demo:deterministic

@@ -12,6 +12,7 @@
     "test:watch": "vitest",
     "verify": "npm run hh:compile && npm run test && npm run typecheck",
     "clean:runtime": "tsx scripts/cleanRuntime.ts",
+    "clean:all-local": "tsx scripts/cleanAllLocal.ts",
     "compile:policy": "tsx scripts/compilePolicy.ts",
     "demo:init": "tsx scripts/initDemo.ts",
     "demo:small": "tsx scripts/demoSmallTrade.ts",
