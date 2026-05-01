@@ -21,6 +21,7 @@ Each invariant includes:
 - **Failure behavior:** Evaluation must stop if digest mismatch is detected.
 - **Proof path:**
   - `test/policyClient.failClosed.test.ts`
+  - `docs/evidence/demo-deterministic.json`
   - `docs/security-model.md`
 
 ## INV-ENS-001 ENS identity passport uses reverse verification
@@ -38,7 +39,7 @@ Each invariant includes:
 - **Proof path:**
   - `test/ensIdentityPassport.test.ts`
   - `test/submissionTrustClaims.test.ts`
-  - `docs/submission-checklist.md`
+  - `docs/evidence/trust-evidence.json`
 
 ## INV-NOHARDCODE-001 Demo trust path does not rely on hardcoded live addresses
 
@@ -86,6 +87,7 @@ Each invariant includes:
   - `web/src/hooks/useOpsEnvelope.js`
   - `web/src/components/trust/SourceBadge.jsx`, `web/src/components/trust/FallbackBanner.jsx`
   - `test/submissionTrustClaims.test.ts`
+  - `docs/frontend-product-contract.md`
 
 ## INV-ENV-001 Public and secret env boundaries are enforced
 

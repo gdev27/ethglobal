@@ -2,22 +2,159 @@
 > gctl@1.0.0 demo:deterministic
 > tsx scripts/demoDeterministic.ts
 
-◇ injected env (27) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (29) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
 {
   "mode": "deterministic-demo",
   "timestamp": "2026-01-01T00:00:00.000Z",
   "small": {
+    "policyId": "0x784465e5240990461301aeaae5c627480543bd04b1835d780dc7df22ff7d7dfc",
+    "metadata": {
+      "policyId": "0x784465e5240990461301aeaae5c627480543bd04b1835d780dc7df22ff7d7dfc",
+      "policyRegistryAddress": "0x9eaB6ef0Cdd26363f0608DD0908adcf1BC0a4814",
+      "policyRegistryChainId": 84532,
+      "executionProfile": "standard"
+    },
+    "identityPassport": {
+      "ensName": "gdev27.eth",
+      "walletAddress": "0x0dd8516ad3a78D83fb5DD6a42AD8D4543BF1150E",
+      "resolverAddress": "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
+      "verifiedReverse": true,
+      "role": "executor",
+      "capabilities": [
+        "execution",
+        "policy-routing",
+        "reconciliation"
+      ],
+      "metadata": {
+        "agent-description": "Institutional execution agent with policy fail-closed routing.",
+        "agent-endpoint": "",
+        "agent-version": "v2",
+        "agent-policy-profile": "0x784465e5240990461301aeaae5c627480543bd04b1835d780dc7df22ff7d7dfc"
+      }
+    },
     "plan": {
-      "allowed": false,
-      "reason": "dependency_failure",
-      "errorCode": "ENS_RECORD_MALFORMED:Missing ENS text record: policy-id"
-    }
+      "allowed": true,
+      "route": "public",
+      "dex": "COWSWAP",
+      "pathType": "batch-auction",
+      "shouldReport": false,
+      "killSwitchActive": false,
+      "trace": {
+        "steps": [
+          {
+            "check": "controls.kill_switch",
+            "passed": true
+          },
+          {
+            "check": "assets.whitelist",
+            "passed": true
+          },
+          {
+            "check": "limits.single",
+            "passed": true
+          },
+          {
+            "check": "limits.daily",
+            "passed": true
+          },
+          {
+            "check": "routing.path",
+            "passed": true,
+            "detail": "batch-auction:COWSWAP"
+          },
+          {
+            "check": "privacy.route",
+            "passed": true,
+            "detail": "public"
+          },
+          {
+            "check": "reporting",
+            "passed": true,
+            "detail": "false"
+          }
+        ]
+      }
+    },
+    "computePreflight": {
+      "provider": "0g-compute-simulated",
+      "model": "qwen3.6-plus",
+      "requestId": "2f180bcb-8c3a-46eb-bd7a-2e3b88ee63c3",
+      "verified": true
+    },
+    "memoryArtifacts": {
+      "preflight": {
+        "uri": "og://local/1d1d10615141932631690fa4720ed843e4d510e73f6d4f5b6bbbfe778468135a",
+        "hash": "1d1d10615141932631690fa4720ed843e4d510e73f6d4f5b6bbbfe778468135a"
+      },
+      "execution": {
+        "uri": "og://local/0581656e6e8fe94327e6e436b09f9bcf9af39fe7facb452891c03c04a985eb71",
+        "hash": "0581656e6e8fe94327e6e436b09f9bcf9af39fe7facb452891c03c04a985eb71"
+      }
+    },
+    "chainAttestation": {
+      "chainId": 16602,
+      "txHash": "0x45b0e3c5f7b4bd8f0fee6d24142fcb9462f1c87149a9797abd5fcb67fe7eca6b",
+      "attestationId": "45b0e3c5f7b4bd8f0fee6d24142fcb9462f1c87149a9797abd5fcb67fe7eca6b"
+    },
+    "intentProofIncluded": true,
+    "workflowId": "l1tb320sjdooznhgfm97o",
+    "runId": "x94sy0cfw3fdw00nxw0hm",
+    "reconciliationState": "succeeded",
+    "auditPath": "C:\\Users\\gd27t\\Downloads\\gctl\\reconciliation-logs\\x94sy0cfw3fdw00nxw0hm.json",
+    "runLogCount": 0
   },
   "large": {
+    "policyId": "0x784465e5240990461301aeaae5c627480543bd04b1835d780dc7df22ff7d7dfc",
+    "metadata": {
+      "policyId": "0x784465e5240990461301aeaae5c627480543bd04b1835d780dc7df22ff7d7dfc",
+      "policyRegistryAddress": "0x9eaB6ef0Cdd26363f0608DD0908adcf1BC0a4814",
+      "policyRegistryChainId": 84532,
+      "executionProfile": "standard"
+    },
+    "identityPassport": {
+      "ensName": "gdev27.eth",
+      "walletAddress": "0x0dd8516ad3a78D83fb5DD6a42AD8D4543BF1150E",
+      "resolverAddress": "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
+      "verifiedReverse": true,
+      "role": "executor",
+      "capabilities": [
+        "execution",
+        "policy-routing",
+        "reconciliation"
+      ],
+      "metadata": {
+        "agent-description": "Institutional execution agent with policy fail-closed routing.",
+        "agent-endpoint": "",
+        "agent-version": "v2",
+        "agent-policy-profile": "0x784465e5240990461301aeaae5c627480543bd04b1835d780dc7df22ff7d7dfc"
+      }
+    },
     "plan": {
       "allowed": false,
-      "reason": "dependency_failure",
-      "errorCode": "ENS_RECORD_MALFORMED:Missing ENS text record: policy-id"
+      "reason": "daily_notional_exceeded",
+      "killSwitchActive": false,
+      "shouldReport": true,
+      "trace": {
+        "steps": [
+          {
+            "check": "controls.kill_switch",
+            "passed": true
+          },
+          {
+            "check": "assets.whitelist",
+            "passed": true
+          },
+          {
+            "check": "limits.single",
+            "passed": true
+          },
+          {
+            "check": "limits.daily",
+            "passed": false,
+            "detail": "2235000"
+          }
+        ]
+      }
     }
   }
 }

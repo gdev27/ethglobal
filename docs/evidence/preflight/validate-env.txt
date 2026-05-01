@@ -4,4 +4,4 @@
 
 Environment contracts validated:
 - .env.example
-- apps\web\.env.example
+- web\.env.example

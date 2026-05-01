@@ -48,6 +48,7 @@ The gctl frontend is the consumer-facing control plane for policy-constrained au
   - `recoveryAction`: operator action text to restore healthy state
 - `source=fallback` and `trustStatus=fallback` must never be rendered as production-live telemetry.
 - `trustStatus=degraded` is reserved for partial trust conditions (for example stale data) where connectivity exists but evidence confidence is reduced.
+- Pages must display `SourceBadge` and `FallbackBanner` whenever `trustStatus !== healthy`; `source=fallback` is the strongest form of that non-healthy state.
 
 ## Visual system contract
 - **Aesthetic direction:** calm institutional cockpit. The brand voice is "policy-constrained autonomy you can prove" — confident, never decorative.
@@ -65,7 +66,7 @@ The gctl frontend is the consumer-facing control plane for policy-constrained au
 - **Accessibility:** Radix primitives provide focus trap, escape-close, and ARIA roles; both themes (default `dark` on `<html>`) are validated for WCAG AA contrast.
 - **Control contract:** shared button/input/select/table/checkbox/radio/switch/tabs/tooltip/popover/dialog/sheet/dropdown/command/scroll-area/slider/separator/skeleton primitives are mandatory for all routes; no raw browser-default form controls on primary flows.
 - **Evidence contract:** policy IDs, hashes, ENS subnames, attestations, and audit paths are rendered in monospace with copy affordances (`web/src/components/trust/IdentityEvidencePanel.jsx`).
-- **Data source contract:** whenever a `/api/ops/*` envelope reports `source: fallback`, pages must display `FallbackBanner` and a `SourceBadge` with the demo state so synthetic data is never mistaken for live state.
+- **Data source contract:** whenever a `/api/ops/*` envelope reports `trustStatus !== healthy`, pages must display `FallbackBanner` and a `SourceBadge` with the current trust state so degraded or synthetic data is never mistaken for healthy live telemetry.
 
 ## Success metrics
 - **Activation:** first successful onboarding completion under 2 minutes.

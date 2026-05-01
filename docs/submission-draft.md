@@ -46,7 +46,7 @@ This creates autonomous behavior with governance boundaries, rather than static 
   - Test gate: `test/submissionTrustClaims.test.ts`
   - Preflight step: `test`
 - **No hardcoded demo trust identities (`INV-NOHARDCODE-001`):**
-  - Evidence: env-driven demo scripts + `web/.env.example`
+  - Evidence: env-driven demo scripts, `.env.example`, and `web/.env.example`
   - Test gate: `test/submissionTrustClaims.test.ts`
   - Preflight step: `validate-env`
 - **KeeperHub workflow branch and traceability (`INV-WORKFLOW-001`, `INV-WORKFLOW-002`):**
@@ -59,8 +59,8 @@ This creates autonomous behavior with governance boundaries, rather than static 
   - Preflight step: `validate-evidence`
 - **API fallback/source disclosure (`INV-SOURCE-001`):**
   - Evidence: Ops API trust envelope in `api/ops/*` and `api/_lib/data.js`
-  - Test gate: `web/src/api/gctlClient.js` `IndexerPolicyStore`/`IndexerTransactionStore` mappers + `api/_lib/data.js` envelope merge
-  - Preflight steps: `web:lint`, `web:build` (captured via root preflight checks)
+  - Test gate: `test/submissionTrustClaims.test.ts`, `web/src/api/gctlClient.js`, `web/src/hooks/useOpsEnvelope.js`
+  - Preflight steps: `web:lint`, `web:typecheck`, `web:build`
 
 ## 0G tracks
 - Framework track: adapter-based framework and extension surfaces.
@@ -87,15 +87,16 @@ KeeperHub is the execution/reliability layer:
 https://github.com/gdev27/gctl
 
 ## Live demo
-`Local CLI demo (deterministic + swarm) with artifacts in docs/evidence/`
+- Web demo: `https://gctl.vercel.app`
+- Repeatable technical demo: `npm run judge:preflight` with artifacts in `docs/evidence/`
 
 ## Frontend demo surface
 - `web/` ships at https://gctl.vercel.app with the operator console: dashboard, agents, policy builder (with AI debate template generator), playground, swarm, alerting, explorer, team, and onboarding readiness.
-- Vercel Functions in `api/ops/*` bridge indexer payloads through a trust-enveloped (`source`/`trustStatus`/`reasonCode`/`recoveryAction`) contract; the SPA renders a `SourceBadge` and `FallbackBanner` whenever live telemetry is unavailable.
+- Vercel Functions in `api/ops/*` bridge indexer payloads through a trust-enveloped (`source`/`trustStatus`/`reasonCode`/`recoveryAction`) contract; the SPA renders a `SourceBadge` and `FallbackBanner` whenever `trustStatus !== healthy`.
 - `api/functions/debate-policy.js` runs a Proposer → Critic → Synthesizer chain on `OPENAI_API_KEY` and falls back to a deterministic synthesizer otherwise.
 
 ## Demo video (under 3 minutes)
-`TBD - recording pending upload`
+`Pending external upload; paste the final public URL into docs/submission-pack.md before submit.`
 
 ## Contract deployment addresses
 - PolicyRegistry (Base Sepolia): `0x9eaB6ef0Cdd26363f0608DD0908adcf1BC0a4814`

@@ -8,6 +8,6 @@
 
  Test Files  11 passed | 1 skipped (12)
       Tests  30 passed | 1 skipped (31)
-   Start at  14:12:22
-   Duration  2.99s (transform 1.22s, setup 0ms, import 4.08s, tests 2.47s, environment 4ms)
+   Start at  01:41:15
+   Duration  1.50s (transform 440ms, setup 0ms, import 1.67s, tests 1.50s, environment 4ms)
 

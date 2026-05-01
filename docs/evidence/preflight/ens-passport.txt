@@ -2,22 +2,26 @@
 > gctl@1.0.0 ens:passport
 > tsx ens-identity/scripts/showIdentityPassport.ts
 
-◇ injected env (27) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (29) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
 {
-  "ensName": "vitalik.eth",
-  "authorized": false,
+  "ensName": "gdev27.eth",
+  "authorized": true,
   "passport": {
-    "ensName": "vitalik.eth",
-    "walletAddress": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+    "ensName": "gdev27.eth",
+    "walletAddress": "0x0dd8516ad3a78D83fb5DD6a42AD8D4543BF1150E",
     "resolverAddress": "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
     "verifiedReverse": true,
     "role": "executor",
-    "capabilities": [],
+    "capabilities": [
+      "execution",
+      "policy-routing",
+      "reconciliation"
+    ],
     "metadata": {
-      "agent-description": "",
+      "agent-description": "Institutional execution agent with policy fail-closed routing.",
       "agent-endpoint": "",
-      "agent-version": "",
-      "agent-policy-profile": ""
+      "agent-version": "v2",
+      "agent-policy-profile": "0x784465e5240990461301aeaae5c627480543bd04b1835d780dc7df22ff7d7dfc"
     }
   }
 }

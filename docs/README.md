@@ -22,6 +22,7 @@ This directory is split into three groups so contributors can quickly find the r
 - `submission-checklist.md`
 - `deployments.md`
 - `video-script.md`
+- `video-voiceover-115s.md`
 - `triple-verified.md`
 
 ## Supporting docs

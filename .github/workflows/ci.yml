@@ -33,8 +33,17 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      - name: Validate env contracts
+        run: npm run validate:env
+
+      - name: Validate evidence schema
+        run: npm run validate:evidence
+
       - name: Frontend lint
         run: npm run web:lint
+
+      - name: Frontend typecheck
+        run: npm run web:typecheck
 
       - name: Frontend build
         run: npm run web:build

@@ -171,7 +171,7 @@ const policyStatusFromState = {
   running: "pending",
 };
 
-function indexedPolicyToBase44(p) {
+function indexedPolicyToEntity(p) {
   const updatedIso = new Date(p.updatedAt || Date.now()).toISOString();
   const prettyName = String(p.policyId || "policy")
     .split(/[-_]/)
@@ -196,7 +196,7 @@ function indexedPolicyToBase44(p) {
   };
 }
 
-function indexedWorkflowToBase44(w) {
+function indexedWorkflowToEntity(w) {
   const ts = new Date(w.updatedAt || Date.now()).toISOString();
   const status = policyStatusFromState[w.state] || "pending";
   return {
@@ -257,7 +257,7 @@ class IndexerPolicyStore extends LocalEntityStore {
     if (indexed && indexed.length > 0) {
       const overrides = new Map(local.map((p) => [p.id, p]));
       const indexedMapped = indexed.map((p) => {
-        const base = indexedPolicyToBase44(p);
+        const base = indexedPolicyToEntity(p);
         const override = overrides.get(base.id);
         return override ? { ...base, ...override, id: base.id, source: override.source || "local" } : base;
       });
@@ -284,7 +284,7 @@ class IndexerTransactionStore extends LocalEntityStore {
     if (indexed && indexed.length > 0) {
       const overrides = new Map(local.map((t) => [t.id, t]));
       const indexedMapped = indexed.map((w) => {
-        const base = indexedWorkflowToBase44(w);
+        const base = indexedWorkflowToEntity(w);
         const override = overrides.get(base.id);
         return override ? { ...base, ...override, id: base.id, source: override.source || "local" } : base;
       });

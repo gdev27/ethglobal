@@ -23,12 +23,13 @@ const envSpecs: EnvSpec[] = [
     ]
   },
   {
-    filePath: path.join(rootDir, "apps", "web", ".env.example"),
-    required: ["NEXT_PUBLIC_INDEXER_URL", "INDEXER_URL"]
+    filePath: path.join(rootDir, "web", ".env.example"),
+    required: []
   }
 ];
 
 const secretTokenPattern = /(PRIVATE_KEY|SECRET|TOKEN|JWT|PASSWORD|API_KEY)/i;
+const publicEnvPrefixes = ["VITE_"];
 
 function parseEnvKeys(raw: string): string[] {
   return raw
@@ -41,7 +42,7 @@ function parseEnvKeys(raw: string): string[] {
 
 function ensurePublicNamespaceHasNoSecrets(keys: string[], scope: string): void {
   for (const key of keys) {
-    if (key.startsWith("NEXT_PUBLIC_") && secretTokenPattern.test(key)) {
+    if (publicEnvPrefixes.some((prefix) => key.startsWith(prefix)) && secretTokenPattern.test(key)) {
       throw new Error(`[${scope}] secret-like variable must not be public: ${key}`);
     }
   }
@@ -58,7 +59,7 @@ function ensureRequiredKeys(keys: string[], required: string[], scope: string): 
 
 function ensureRuntimeCompositionSafe(): void {
   for (const [key] of Object.entries(process.env)) {
-    if (key.startsWith("NEXT_PUBLIC_") && secretTokenPattern.test(key)) {
+    if (publicEnvPrefixes.some((prefix) => key.startsWith(prefix)) && secretTokenPattern.test(key)) {
       throw new Error(`Unsafe runtime env composition: ${key} looks secret but is public.`);
     }
   }

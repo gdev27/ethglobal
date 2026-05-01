@@ -24,11 +24,11 @@ The Vercel Functions in `api/ops/*` and `api/functions/debate-policy.js` only ru
 ## Quality gates
 - `npm run web:lint`
 - `npm run web:build`
-- `npm run web:typecheck` (advisory — pre-existing JSX-on-shadcn type noise; not currently a merge gate)
+- `npm run web:typecheck`
 
 ## API contract notes
 - Vercel Functions live under `api/ops/*` and `api/functions/*`.
 - `api/ops/*` reads the indexer (via `INDEXER_URL`) and normalizes operator-facing payloads.
 - If the indexer is unavailable, deterministic fallback data from `api/_lib/mock-data.js` is returned so demos remain inspectable.
 - Every payload includes the trust envelope: `source` (`live` | `fallback`), `trustStatus` (`healthy` | `degraded` | `fallback`), optional `reasonCode`, and optional `recoveryAction`.
-- The SPA renders `web/src/components/trust/SourceBadge.jsx` plus `FallbackBanner.jsx` whenever `trustStatus !== healthy`.
+- The SPA renders `web/src/components/trust/SourceBadge.jsx` plus `FallbackBanner.jsx` whenever `trustStatus !== healthy`; this includes degraded live data and fallback demo data.

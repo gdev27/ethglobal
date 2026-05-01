@@ -5,7 +5,7 @@
 - [x] Public GitHub repo link added.
 - [x] README includes setup, architecture, and demo commands.
 - [x] Working technical demo completed with live credentials (`demo:deterministic`, `demo:swarm`, and `ens:passport`).
-- [ ] Demo video is 2-3 minutes and shows agentic reasoning.
+- [ ] Demo video is 2-3 minutes and shows agentic reasoning. Public upload URL must be pasted into `docs/submission-pack.md`.
 - [x] Team member names + contact links (Telegram + X) added.
 
 ## Mandatory evidence to include
@@ -17,7 +17,7 @@
 ## 0G track checklist
 - [x] Show 0G Compute usage in planner/critic loops.
 - [x] Show 0G Storage memory artifacts in demo output.
-- [ ] Show 0G Chain attestation evidence and tx hash mapping.
+- [x] Show 0G Chain attestation mapping via `docs/evidence/trust-evidence.json` (`attestation`) with explicit simulated adapter receipt marker for the current judging run.
 - [x] Include one framework example and one autonomous swarm example.
 
 ## ENS track checklist
@@ -34,10 +34,10 @@
 
 ## Final dry-run checklist (24h before deadline)
 - [ ] Fresh clone setup test succeeds.
-- [ ] `npm run judge:preflight` passes.
-- [ ] `docs/evidence/judge-preflight-report.md` captured and reviewed.
+- [x] `npm run judge:preflight` passes.
+- [x] `docs/evidence/judge-preflight-report.md` captured and reviewed.
 - [ ] Video narration matches live outputs.
-- [ ] Submission form links are valid and public.
+- [ ] Live demo, video, and submission form links are valid and public.
 
 ## Automated trust gates
 - [x] Trust invariants documented: `docs/trust-invariants.md`
@@ -51,18 +51,20 @@
 - [x] ENS evidence owner: `Gaurav Dev`
 - [x] 0G evidence owner: `Gaurav Dev`
 - [x] KeeperHub evidence owner: `Gaurav Dev`
-- [ ] Video owner: `Gaurav Dev`
+- [x] Video owner assigned: `Gaurav Dev`
+- [ ] Video URL pasted into `docs/submission-pack.md`
 
-## Verification snapshot (replace before submit)
-- Date/time (UTC): `2026-04-29T21:17:18Z`
-- Commit SHA: `298f70a32be7e2a8980a8ecfb874c7725ebfc3d7`
-- Environment: `Windows 10 (local workspace)`
-- `npm install`: `PASS`
-- `npm run hh:compile`: `PASS`
-- `npm run test`: `PASS`
+## Verification snapshot
+- Source of truth: `docs/evidence/judge-preflight-report.md` and `docs/evidence/judge-preflight-report.json`
+- Date/time (UTC): `2026-04-30T23:41:34.797Z`
+- Environment: `Windows 10 local workspace`
+- `npm run validate:env`: `PASS`
+- `npm run validate:evidence`: `PASS`
+- `npm run test`: `PASS` (`30` passed, `1` skipped)
 - `npm run typecheck`: `PASS`
-- `npm run compile:policy`: `FAIL (execution reverted: policy_exists on PolicyRegistry)`
-- `npm run demo:init`: `FAIL (execution reverted: policy_exists on PolicyRegistry)`
-- `npm run demo:deterministic`: `PASS (small path executes with KeeperHub workflow/run + succeeded reconciliation; large path policy-denied on daily_notional_exceeded)`
-- `npm run demo:swarm`: `PASS (reverse verification succeeds; swarm execution path returns KeeperHub workflow/run + succeeded reconciliation)`
-- `npm run ens:passport`: `PASS (passport generated on gdev27.eth; authorized=true, walletAddress resolved, and verifiedReverse=true)`
+- `npm run web:lint`: `PASS`
+- `npm run web:typecheck`: `PASS`
+- `npm run web:build`: `PASS`
+- `npm run verify`: `PASS`
+- `npm run judge:preflight`: `PASS` (`8` passed, `0` failed)
+- If `npm run compile:policy` or `npm run demo:init` is run against the existing deployed `PolicyRegistry`, `policy_exists` can be an expected idempotency response. The repeatable judge path is `npm run judge:preflight`.
